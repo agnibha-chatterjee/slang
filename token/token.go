@@ -8,8 +8,8 @@ type Token struct {
 }
 
 const (
-	EOF     = "EOF"
-	ILLEGAL = "ILLEGAL"
+	EOF     = "EOF"     // Tells the interpreter when to stop
+	ILLEGAL = "ILLEGAL" // For ILLEGAL tokens that we don't understand
 
 	INT   = "INT"
 	IDENT = "IDENT"
