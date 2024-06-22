@@ -3,7 +3,7 @@ package ast
 import "slang/token"
 
 type Node interface {
-	TokenType() string
+	TokenLiteral() string
 }
 
 type Statement interface {
@@ -20,9 +20,12 @@ type Program struct {
 	Statements []Statement
 }
 
-type Identifier struct {
-	Token token.Token // the IDENT token
-	Value string
+func (p *Program) TokenLiteral() string {
+	if len(p.Statements) > 0 {
+		return p.Statements[0].TokenLiteral()
+	} else {
+		return ""
+	}
 }
 
 type LetStatement struct {
@@ -31,12 +34,12 @@ type LetStatement struct {
 	Value Expression
 }
 
-func (p *Program) TokenLiteral() string {
-	if len(p.Statements) > 0 {
-		return p.Statements[0].TokenType()
-	} else {
-		return ""
-	}
+func (ls *LetStatement) statementNode()       {}
+func (ls *LetStatement) TokenLiteral() string { return ls.Token.Literal }
+
+type Identifier struct {
+	Token token.Token // the IDENT token
+	Value string
 }
 
 func (i *Identifier) expressionNode()      {}
