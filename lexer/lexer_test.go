@@ -15,6 +15,10 @@ let result = add(five, ten);
 !-/*5;
 5 < 10 > 5;
 
+if
+else
+return
+
 10 == 10;
 10 != 9;
 `
@@ -71,6 +75,9 @@ let result = add(five, ten);
 		{token.GT, ">"},
 		{token.INT, "5"},
 		{token.SEMICOLON, ";"},
+		{token.IF, "if"},
+		{token.ELSE, "else"},
+		{token.RETURN, "return"},
 		{token.INT, "10"},
 		{token.EQ, "=="},
 		{token.INT, "10"},
