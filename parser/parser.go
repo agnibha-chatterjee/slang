@@ -100,7 +100,7 @@ func (p *Parser) parseReturnStatement() *ast.ReturnStatement {
 		Skipping expression parsing for now
 	*/
 
-	if !p.curTokenIs(token.SEMICOLON) {
+	for !p.curTokenIs(token.SEMICOLON) {
 		p.nextToken()
 	}
 
