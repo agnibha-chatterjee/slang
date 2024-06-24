@@ -45,6 +45,8 @@ func (p *Parser) parseLetStatement() *ast.LetStatement {
 		Value: p.curToken.Literal,
 	}
 
+	// this enforces that we have to have an equal to after let <identifier_name> = <---- check for this
+
 	if !p.expectPeek(token.ASSIGN) {
 		return nil
 	}
