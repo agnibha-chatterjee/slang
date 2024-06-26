@@ -15,7 +15,8 @@ type Parser struct {
 
 	/*
 		Think of a single line only containing 5;.
-		Then curToken is a token.INT and we need peekToken to decide whether we are at the end of the line or if we are at just the start of an arithmetic expression.
+		Then curToken is a token.INT and we need peekToken to decide whether
+		we are at the end of the line or if we are at just the start of an arithmetic expression.
 	*/
 
 	errors []string
