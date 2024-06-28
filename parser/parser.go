@@ -16,7 +16,7 @@ const (
 	SUM         //+
 	PRODUCT     //*
 	PREFIX      //-X or !X
-	CALL        // myFunction(X)
+	CALL        // someFunc(X)
 )
 
 var precedences = map[token.TokenType]int{
@@ -288,6 +288,7 @@ func (p *Parser) ParseProgram() *ast.Program {
 
 	for p.curToken.Type != token.EOF {
 		stmt := p.parseStatement()
+
 		if stmt != nil {
 			program.Statements = append(program.Statements, stmt)
 		}
